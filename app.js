@@ -8,6 +8,7 @@ const Album = require("./models/album");
 const User = require("./models/user");
 const Track = require("./models/track");
 const sequelize = require("./database/sequelize");
+const UserRoutes = require("./routes/User");
 const { Op } = Sequelize;
 app.use(bodyParser.json());
 const connection = sequelize;
@@ -47,14 +48,7 @@ Playlist.hasMany(Track, {
 //     timestamp: false,
 //   });
 
-app.get("/", function (req, res) {
-  User.findAll()
-    .then((playlists) => {
-      res.status(200).json(playlists);
-    })
-    .catch((err) => console.log(err));
-});
-
+app.use("/", UserRoutes);
 app.get("/users", function (req, res) {
   let { name } = req.query;
   let filter = {};
