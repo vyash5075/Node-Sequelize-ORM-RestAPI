@@ -1,1 +1,1 @@
-# Node-Sequelize-ORM-RestAPI
+# Node-Sequelize-ORM-RestAPI.
